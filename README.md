@@ -1,41 +1,39 @@
-Customer Review Sentiment Analysis - Product Insights Report
+Sales Demand Forecasting - Rossmann Store Sales
+
+Objective
+Forecast future retail sales using time series and machine learning on Rossmann Store Sales dataset.
 
 Dataset
-- Source: Amazon Fine Food Reviews
-- Size: 20,000 reviews
-- Ratings: 1-5 stars
+- Source: Kaggle - Rossmann Store Sales Competition
+- Size: 1,017,209 rows, 9 features
+- Stores used: 2, 3, 20, 30
+- Date range: 2013-01-02 to 2015-07-31
 
-Sentiment Distribution
-- Positive (4-5 stars): 15,595 reviews (78%)
-- Negative (1-2 stars): 2,886 reviews (14%)
-- Neutral (3 stars): 1,519 reviews (8%)
+Feature Engineering
+- Year, Month, Day, WeekOfYear extracted from Date
+- IsWeekend flag created from DayOfWeek
+- Lag_7, Lag_14: sales 7 and 14 days ago
+- Rolling_Mean_7, Rolling_Mean_14: rolling average sales
+- Time-based train/test split used - no random shuffle
 
-Model Performance
-- TF-IDF + Logistic Regression: Accuracy 76%, F1 0.87 (positive), F1 0.59 (negative)
-- DistilBERT zero-shot: Accuracy 62%, F1 0.72 (positive), F1 0.44 (negative)
-- TF-IDF model outperforms DistilBERT zero-shot on this domain-specific dataset
+Models
+- Prophet (classical time series model)
+- LightGBM (tree-based model with lag features)
 
-Top Complaints from Negative Reviews
-1. Poor Taste & Flavor - customers unhappy with taste, texture, and flavor
-2. Fake & Wasteful Products - chocolate, cocoa products labeled as fake or misleading
-3. Coffee & Tea Quality - bitter taste, poor roast quality
-4. Shipping & Packaging - damaged boxes, wrong items, Amazon delivery issues
-5. Food Origin Concerns - products made in China, dog food quality issues
-6. Specific Product Issues - jerky, olive oil, cherry products frequently complained about
+Results - Store 2
+Model      | MAE     | RMSE    | MAPE
+Prophet    | 1438.71 | 1814.58 | 32.26%
+LightGBM   | 399.84  | 528.45  | 8.03%
 
-Top Praise Themes from Positive Reviews
-- Great taste and flavor
-- Good value for money
-- Fresh and high quality ingredients
-- Fast delivery and good packaging
-
-3 Actionable Recommendations
-1. Improve product labeling - customers feel misled about ingredients and origin
-2. Review chocolate and cocoa product quality - high complaint volume in this category
-3. Strengthen packaging for shipping - many complaints about damaged or wrong items
+Key Findings
+- LightGBM outperforms Prophet significantly
+- Lag features and rolling means are most important predictors
+- Weekly seasonality is strong across all stores
+- Store 2 is easiest to predict due to consistent patterns
 
 How to Run
 1. Clone the repository
-2. Install: pip install -r requirements.txt
-3. Place Reviews.csv in project folder
-4. Open sentiment_analysis.ipynb and run all cells
+2. Install dependencies: pip install -r requirements.txt
+3. Place train.csv and store.csv in the project folder
+4. Open sales_forecasting.ipynb in Jupyter Notebook
+5. Run all cells in order
