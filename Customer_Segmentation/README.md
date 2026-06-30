@@ -18,14 +18,20 @@ Spending Score.
 
 ## Results & Findings
 Five distinct customer segments were identified:
-- **Cautious Seniors** (low income, low spending) — value-focused offers
-- **Young Spenders** (low-mid income, high spending) — trend-driven, social media marketing
-- **Premium Customers** (high income, high spending) — VIP loyalty programs
-- **Careful Affluent** (high income, low spending) — targeted incentives to unlock potential
-- **Average Mainstream** (mid income, mid spending) — standard seasonal promotions
+- **Cautious Seniors** (Age ~46, Income ~$27k, Spending ~18) — low income, low 
+  spending older customers. Strategy: value-for-money deals, loyalty discounts.
+- **Young Spenders** (Age ~25, Income ~$41k, Spending ~62) — largest segment (54 
+  customers), young with moderate income but high spending. Strategy: trendy 
+  products, social media campaigns, flexible payment options.
+- **Premium Customers** (Age ~33, Income ~$86k, Spending ~82) — high income, high 
+  spending, most valuable segment. Strategy: VIP loyalty programs, premium offerings.
+- **Careful Affluent** (Age ~40, Income ~$86k, Spending ~19) — high income but low 
+  spending, untapped potential. Strategy: targeted incentives to unlock spending.
+- **Average Mainstream** (Age ~56, Income ~$54k, Spending ~49) — balanced segment 
+  (47 customers). Strategy: standard seasonal promotions.
 
 PCA and t-SNE visualizations confirmed clear separation between clusters, validating 
 clustering quality.
 
 ## Files
-- `Task2_Customer_Segmentation.ipynb` — Full notebook with EDA, clustering, visualization, and strategy recommendations
+- `Customer_Segmentation-Task2.ipynb` — Full notebook with EDA, clustering, visualization, and strategy recommendations
